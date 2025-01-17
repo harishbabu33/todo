@@ -1,0 +1,231 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  padding: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: rgba(227, 230, 224, 0.9);
+  border-radius: 12px;
+  border: 5px solid rgb(185, 228, 243);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.app h1 {
+  font-size: 2.5em;
+  margin: 20px auto;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background-color: #22577A;
+  padding: 15px;
+  display: inline-block;
+  animation: glow 1.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 
+      0 0 5px #fff, 
+      0 0 10px #fff, 
+      0 0 15px #fff, 
+      0 0 20px #FF00FF, 
+      0 0 30px #FF00FF, 
+      0 0 40px #FF00FF, 
+      0 0 50px #FF00FF, 
+      0 0 75px #FF00FF; /* Pinkish glow at start */
+  }
+  50% {
+    text-shadow: 
+      0 0 10px #fff, 
+      0 0 20px #fff, 
+      0 0 30px #FF6347,  /* Orange glow in the middle */
+      0 0 40px #FF6347, 
+      0 0 50px #FF6347, 
+      0 0 75px #FF6347, 
+      0 0 100px #FF6347;
+  }
+  100% {
+    text-shadow: 
+      0 0 20px #fff, 
+      0 0 30px #fff, 
+      0 0 40px #00FF00,  /* Green glow at the end */
+      0 0 50px #00FF00, 
+      0 0 60px #00FF00, 
+      0 0 75px #00FF00, 
+      0 0 100px #00FF00;
+  }
+}
+
+.home {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.task-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #90B0BA;
+}
+
+.task-input {
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  font-size: 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-task-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #fb6107;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-task-button:hover {
+  background-color: #C94C03;
+}
+
+.task-sections {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  height: calc(100% - 120px);
+}
+
+.task-section {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(249, 249, 249, 0.8);
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-section .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.task-section > h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.task-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  word-break: break-all;
+}
+
+.task-section ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.task-section button {
+  min-width: 60px;
+  min-height: 30px;
+  margin-left: auto;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.tasks button:first-child {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007200;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.tasks button:last-child {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.task-section button:first-child:hover {
+  background-color: #005200;
+}
+
+.task-section button:last-child:hover {
+  background-color: #B62616;
+}
+
+.task-section button.delete-all {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0077B6;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.task-section button.delete-all:hover {
+  background-color: #00507A;
+}
