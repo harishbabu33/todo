@@ -1,39 +1,33 @@
 import React, { useState } from 'react';
 
 function Home() {
-  const [task, setTask] = useState(''); // Input field value
-  const [tasks, setTasks] = useState({ todo: [], ongoing: [], completed: [] }); // Task categories
+  const [task, setTask] = useState('');
+  const [tasks, setTasks] = useState({ todo: [], ongoing: [], completed: [] });
 
-  // Handle input change
   const handleInputChange = (e) => {
     setTask(e.target.value);
   };
 
-  // Add task to "To-Do" section
   const addTask = () => {
     if (task.trim() !== '') {
       setTasks((prevTasks) => ({
         ...prevTasks,
         todo: [...prevTasks.todo, task],
       }));
-      setTask(''); // Clear input
+      setTask('');
     }
   };
 
-  // Move task to another category
   const moveTask = (currentCategory, targetCategory, taskToMove) => {
     setTasks((prevTasks) => {
-      // Remove task from current category
       const updatedCurrent = prevTasks[currentCategory].filter(
         (t) => t !== taskToMove
       );
-      // Add task to target category
       const updatedTarget = [...prevTasks[targetCategory], taskToMove];
       return { ...prevTasks, [currentCategory]: updatedCurrent, [targetCategory]: updatedTarget };
     });
   };
 
-  // Delete a single task
   const deleteTask = (category, taskToDelete) => {
     setTasks((prevTasks) => {
       const updatedCategory = prevTasks[category].filter((t) => t !== taskToDelete);
@@ -41,7 +35,6 @@ function Home() {
     });
   };
 
-  // Delete all tasks in a category
   const deleteAllTasks = (category) => {
     setTasks((prevTasks) => ({ ...prevTasks, [category]: [] }));
   };
@@ -76,13 +69,18 @@ function Home() {
           <ul>
             {tasks.todo.map((t, index) => (
               <li className="tasks" key={index}>
-                {t}
-                <button onClick={() => moveTask('todo', 'ongoing', t)}>
-                  Active
-                </button>
-                <button onClick={() => deleteTask('todo', t)}>
-                  Delete
-                </button>
+                <div className="task-text">{t}</div>
+                <div className="task-buttons">
+                  <button onClick={() => moveTask('todo', 'ongoing', t)}>
+                    Start Now
+                  </button>
+                  <button onClick={() => moveTask('todo', 'completed', t)}>
+                    Complete
+                  </button>
+                  <button onClick={() => deleteTask('todo', t)}>
+                    Remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -97,13 +95,18 @@ function Home() {
           <ul>
             {tasks.ongoing.map((t, index) => (
               <li className="tasks" key={index}>
-                {t}
-                <button onClick={() => moveTask('ongoing', 'completed', t)}>
-                  Done
-                </button>
-                <button onClick={() => deleteTask('ongoing', t)}>
-                  Delete
-                </button>
+                <div className="task-text">{t}</div>
+                <div className="task-buttons">
+                  <button onClick={() => moveTask('ongoing', 'todo', t)}>
+                    Postpone
+                  </button>
+                  <button onClick={() => moveTask('ongoing', 'completed', t)}>
+                    Complete
+                  </button>
+                  <button onClick={() => deleteTask('ongoing', t)}>
+                    Remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -118,10 +121,18 @@ function Home() {
           <ul>
             {tasks.completed.map((t, index) => (
               <li className="tasks" key={index}>
-                {t}
-                <button onClick={() => deleteTask('completed', t)}>
-                  Delete
-                </button>
+                <div className="task-text">{t}</div>
+                <div className="task-buttons">
+                  <button onClick={() => moveTask('completed', 'todo', t)}>
+                    Repeat
+                  </button>
+                  <button onClick={() => moveTask('completed', 'ongoing', t)}>
+                    Restart
+                  </button>
+                  <button onClick={() => deleteTask('completed', t)}>
+                    Remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
