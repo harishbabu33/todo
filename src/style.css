@@ -12,14 +12,15 @@ body {
 }
 
 .app {
-  padding: 0px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  width: 85%;
+  height: 660px;
+  padding: 10px;
+  margin: 50px auto;
   text-align: center;
   font-family: Arial, sans-serif;
-  background-color: rgba(227, 230, 224, 0.9);
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
   border: 5px solid rgb(185, 228, 243);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -34,7 +35,7 @@ body {
   padding: 15px;
   display: inline-block;
   width: 30%;
-  height: 40%;
+  height: 8%;
   animation: glow 3.0s ease-in-out infinite alternate;
 
 }
@@ -89,14 +90,16 @@ body {
 
 .task-form {
   display: flex;
+  padding: 0%;
   justify-content: center;
+  width: 100%;
   margin-bottom: 20px;
   color: #90B0BA;
 }
 
 .task-input {
-  width: 300px;
-  height: 30px;
+  width: 50%;
+  height: 33px;
   padding: 10px;
   font-size: 15px;
   margin-right: 10px;
@@ -105,13 +108,13 @@ body {
 }
 
 .add-task-button {
+  width: 15%;
   padding: 10px 20px;
   border: none;
   background-color: #fb6107;
   color: white;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .add-task-button:hover {
@@ -123,7 +126,7 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  height: calc(100% - 120px);
+  height: 400px;
 }
 
 .task-section {
@@ -131,7 +134,8 @@ body {
   border-radius: 8px;
   padding: 20px;
   text-align: center;
-  background-color: rgb(249, 249, 249, 0.8);
+  background-color: rgba(249, 249, 249, 0.8);
+  backdrop-filter: blur(10px);
   flex: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -145,6 +149,9 @@ body {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .task-section .delete-all {
@@ -172,6 +179,7 @@ body {
   margin: 10px 0 0 0;
   width: 100%;
   overflow-wrap: break-word;
+  overflow-y: auto;
 }
 
 .tasks {
@@ -271,4 +279,91 @@ body {
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app {
+    width: 90%; /* Adjust width for tablets */
+    margin: 30px auto; /* Adjust margins */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .task-sections {
+    flex-direction: row; /* Keep sections in a row, but adjust */
+    justify-content: space-around; /* Distribute sections evenly */
+    gap: 15px; /* Adjust gap */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .task-section {
+    width: 30%; /* Adjust width for tablets */
+  }
+
+  .task-input {
+    width: 70%; /* Adjust input width */
+  }
+
+  .add-task-button {
+    width: 25%; /* Adjust button width */
+  }
+
+  .app h1 {
+    font-size: 2.2em; /* Adjust font size */
+    width: 60%;
+  }
+
+  .task-section h2 {
+    font-size: 1.15em; /* Adjust font size */
+  }
+
+  .task-section ul li {
+    font-size: 0.95em; /* Adjust list item font size */
+  }
+
+  .task-section button {
+    padding: 10px 15px; /* Adjust button padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: 80%; /* Take up more of the screen */
+    margin: 30px auto; /* Reduce margins */
+    height: auto; /* Allow height to adjust to content */
+  }
+
+  .task-sections {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Allow height to adjust */
+    gap: 10px; /* Reduce gap */
+  }
+
+  .task-section {
+    width: 93%; /* Take up full width */
+  }
+
+  .task-input {
+    width: 80%; /* Adjust input width */
+  }
+
+  .add-task-button {
+    width: 30%; /* Adjust button width */
+  }
+
+  .app h1 {
+    font-size: 2em; /* Reduce font size */
+    width: 80%;
+  }
+
+  .task-section h2 {
+    font-size: 1.1em; /* Reduce font size */
+  }
+
+  .task-section ul li {
+    font-size: 0.9em; /* Reduce list item font size */
+  }
+
+  .task-section button {
+    padding: 8px 12px; /* Adjust button padding */
+  }
 }
